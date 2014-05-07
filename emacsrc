@@ -1,0 +1,132 @@
+ ;; Save all backup files in just one dir
+(setq backup-directory-alist `(("."."~/.saves")))
+(setq backup-by-copying t)
+(setq auto-save-file-name-transforms `((".*", temporary-file-directory t)))
+;; ======== set colors ============
+
+
+;; Set indentation 
+
+
+
+;;  Highlight working line
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "grey33")
+(column-number-mode 1)
+
+;; indent with spaces
+(setq-default indent-tabs-mode nil)
+
+;; Display line & columns
+(line-number-mode 1)
+(column-number-mode 1)
+
+;; ======== colors ===== 
+(set-mouse-color "goldenrod")
+
+(display-multi-font-p)
+;; ======= display h-ruler====
+(global-linum-mode 1)
+(setq linum-format "%3d \u258d")
+
+;; ======= email conf =======
+(setq smtpmail-default-smtp-server "mail.gmail.com"
+      smtp-local-domain "gmail.com")
+(load-library "smtpmail")
+;; send that shit
+(setq message-send-mail-function 'smtpmail-send-it)
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(display-time-mail-face nil)
+ '(face-font-family-alternatives (quote (("Ubuntu" "courier" "fixed") ("courier" "CMU Typewriter Text" "fixed") ("Sans Serif" "helv" "helvetica" "arial" "fixed") ("helv" "helvetica" "arial" "fixed"))))
+ '(frame-background-mode (quote light)))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(font-lock-comment-face ((((class color) (min-colors 88) (background light)) (:foreground "firebrick" :slant italic :weight normal))))
+ '(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "sienna1"))))
+ '(font-lock-keyword-face ((((class color) (min-colors 88) (background light)) (:foreground "DarkOrange" :slant italic :weight bold))))
+ '(font-lock-string-face ((((class color) (min-colors 88) (background light)) (:foreground "wheat1"))))
+ '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "PaleGreen" :weight light))))
+ '(highlight ((((class color) (min-colors 88) (background light)) (:background "grey10"))))
+ '(hl-line ((t (:inherit highlight :background "grey33" :slant italic))))
+ '(linum ((t (:inherit (shadow default) :family "Arial"))))
+ '(mode-line ((((class color) (min-colors 88)) (:background "green" :foreground "grey8" :family "ubuntu"))))
+ '(mode-line-buffer-id ((t (:weight ultra-light))))
+ '(mode-line-emphasis ((t (:weight extra-bold))))
+ '(mode-line-inactive ((default (:inherit mode-line :background "whitesmoke" :foreground "grey8" :weight ultra-light)) (((class color) (min-colors 88) (background light)) (:background "grey90" :foreground "grey20" :weight light)))))
+
+
+
+;; fonts ;;
+(set-default-font "Inconsolata-12")
+
+;; where to look for *.el TODO: move to one dir;;
+(add-to-list 'load-path "~/.emacs.d/lisp/multiple-cursors.el") 
+(add-to-list 'load-path "~/.emacs.d/web-mode") 
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/scss-mode"))
+;;;;;;;; multiple cursors llibrary ;;
+(require 'multiple-cursors)  
+;; keybindings
+;; basic
+(global-set-key (kbd "C-c C-c") 'mc/edit-lines)
+(global-set-key (kbd "C-c p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c a") 'mc/mark-all-like-this)
+
+;;;;;;;; flymake (syntax check on the fly xD)
+(require 'flymake)
+;; i don't want to have tmp files in working dir
+(setq flymake-run-in-place nil)
+(setq temporary-file-directory "~/emacs.d/auto-save-list/")
+;; i want 4 error per line
+(setq flymake-number-of-errors-to-display 4)
+
+;;;;;; adds sass mode ;)
+(setq exec-path (cons (expand-file-name "~/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.3/bin") exec-path))
+
+
+(autoload 'scss-mode "scss-mode")
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+(setq scss-compile-at-save nil)
+
+;;;;;; html mode (erb, python, php, JS... etc)
+(require 'web-mode)
+
+;;;;; wich extensions will be handled by web-mode
+;; erb
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+;; plain html
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+
+(setq web-mode-engines-alist
+      '(("erb" . "\\.erb\\'"))
+)
+;; change default face
+(set-face-attribute 'web-mode-html-tag-face nil :foreground "pink3")
+(set-face-attribute 'web-mode-html-attr-name-face nil :foreground "green")
+(set-face-attribute 'web-mode-html-tag-bracket-face nil :foreground "pink6")
+
+;; enable x11 clipboard yank
+(setq x-select-enable-clipboard t)
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+
+
+;; TODOOOOOOOOOOOOOOOOOO
+;; PopUp
+;;(add-to-list 'load-path "~/.emacs.d/popup-el")
+;;(require 'popup.el)
+;; Auto complete plugin
+;;(add-to-list 'load-path "~/.emacs.d/auto-complete")
+;;(require 'auto-complete)
+;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/dict")
+;;(require 'auto-complete-config)
+;;(ac-config-default)
+;;(global-auto-complete-mode t)
+
