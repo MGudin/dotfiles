@@ -1,0 +1,79 @@
+;; adds repositories for lisp packages
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
+
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   '("melpa" . "http://melpa.org/packages/")
+   t)
+    (package-initialize))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(global-linum-mode t)
+
+ '(linum-format "%3d ▍")
+ '(markdown-command "pandoc")
+ '(markdown-css-paths nil)
+ '(next-line-add-newlines nil)
+ '(size-indication-mode t))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(linum ((t (:inherit (## default)))))
+ ;; '(mode-line ((t (:background "brightred" :foreground "black" :inverse-video t :box (:line-width -1 :style released-button) :weight ultra-bold))))
+ '(mode-line-buffer-id ((t (:weight bold))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "color-240" :foreground "color-233" :box (:line-width -1 :color "grey75") :weight light)))))
+
+
+;;  Highlight working line
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "grey11")
+(column-number-mode 1)
+
+;; indent with spaces
+(setq-default indent-tabs-mode nil)
+
+;; Display line & columns
+(line-number-mode 1)
+(column-number-mode 1)
+(display-multi-font-p)
+
+;; enable x11 clipboard yank
+(setq x-select-enable-clipboard t)
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+
+;; stay update you!! ucking buffers..
+(global-auto-revert-mode t)
+
+;; Markdown
+(setq markdown-css-path "~/.emacs.d/github-md.css")
+
+;; TAGS 
+(setq path-to-ctags "~/.emacs.d/TAGS")
+
+(defun create-tags (dir-name)
+  "Create tags file."
+(interactive "DDirectory: ")
+  (shell-command
+   (format "ctags -f %s -e  -R %s" path-to-ctags (directory-file-name dir-name)))
+    )
+
+;; Plugins
+;; tabkey2 (not working)
+(add-to-list 'load-path "~/.emacs.d/plugins/")
+(require 'tabkey2)
+
+
+;; Django mode ;)
+(add-to-list 'load-path "~/.emacs.d/plugins/python-django.el/")
+(require 'python-django)
