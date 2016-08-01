@@ -17,12 +17,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(global-linum-mode t)
-
  '(linum-format "%3d ▍")
  '(markdown-command "pandoc")
  '(markdown-css-paths nil)
  '(next-line-add-newlines nil)
- '(size-indication-mode t))
+ '(size-indication-mode t)
+ '(temporary-file-directory "~/.emacs.d/auto-save-list"))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -30,7 +30,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(linum ((t (:inherit (## default)))))
- ;; '(mode-line ((t (:background "brightred" :foreground "black" :inverse-video t :box (:line-width -1 :style released-button) :weight ultra-bold))))
  '(mode-line-buffer-id ((t (:weight bold))))
  '(mode-line-inactive ((t (:inherit mode-line :background "color-240" :foreground "color-233" :box (:line-width -1 :color "grey75") :weight light)))))
 
@@ -77,3 +76,4 @@
 ;; Django mode ;)
 (add-to-list 'load-path "~/.emacs.d/plugins/python-django.el/")
 (require 'python-django)
+
