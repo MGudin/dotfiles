@@ -17,11 +17,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(global-linum-mode t)
+ '(js-indent-level 2)
  '(linum-format "%3d ▍")
  '(markdown-command "pandoc")
- '(markdown-css-paths nil)
+ '(markdown-css-paths (quote ("/home/chudix/.emacs.d/github-md.css")))
  '(next-line-add-newlines nil)
  '(size-indication-mode t)
+ '(tab-width 2)
  '(temporary-file-directory "~/.emacs.d/auto-save-list"))
 
 (custom-set-faces
@@ -77,3 +79,22 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/python-django.el/")
 (require 'python-django)
 
+
+;; yasnippets
+
+(add-to-list 'load-path
+"~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
+
+
+;; zen mode (emmet)
+
+(add-to-list 'load-path
+             "~/.emacs.d/plugins/zencoding")
+
+(require 'zencoding-mode)
+;; activate zenmode on markup modes.
+(add-hook 'sgml-mode-hook 'zencoding-mode)
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
