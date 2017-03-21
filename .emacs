@@ -22,6 +22,7 @@
  '(markdown-command "pandoc")
  '(markdown-css-paths (quote ("/home/chudix/.emacs.d/github-md.css")))
  '(next-line-add-newlines nil)
+ '(reb-re-syntax (quote string))
  '(size-indication-mode t)
  '(tab-width 2)
  '(temporary-file-directory "~/.emacs.d/auto-save-list"))
@@ -31,9 +32,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "color-236" :foreground "unspecified-fg" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight semi-bold :height 1 :width normal :foundry "default" :family "default"))))
  '(linum ((t (:inherit (## default)))))
  '(mode-line-buffer-id ((t (:weight bold))))
- '(mode-line-inactive ((t (:inherit mode-line :background "color-240" :foreground "color-233" :box (:line-width -1 :color "grey75") :weight light)))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "color-240" :foreground "color-233" :box (:line-width -1 :color "grey75") :weight light))))
+ '(region ((t (:background "color-52")))))
 
 
 ;;  Highlight working line
@@ -75,9 +78,9 @@
 (require 'tabkey2)
 
 
-;; Django mode ;)
-(add-to-list 'load-path "~/.emacs.d/plugins/python-django.el/")
-(require 'python-django)
+;; ;; Django mode ;)
+;; (add-to-list 'load-path "~/.emacs.d/plugins/python-django.el/")
+;; (require 'python-django)
 
 
 ;; yasnippets
@@ -98,3 +101,18 @@
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+;; Neo tree
+
+(add-to-list 'load-path "~/.emacs.d/neotree")
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
+
+;; Tab Bar Mode (displays tabs at the top)
+;; (add-to-list 'load-path "~/.emacs.d/tabbar")
+;; (require 'tabbar)
+;; TODO: customize appeareance
+
+;; Switch between buffers with arrow keys
+(windmove-default-keybindings)
