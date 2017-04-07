@@ -159,28 +159,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-#### virtualenv
 
-alias vea='source ./bin/activate'
-
-
-#### django aliases
-
-alias dj='python manage.py'
-
-#### git aliases
-
-alias gis='git status'
-alias gc='git commit -m'
-alias ga='git add'
-alias gaa='git add .'
-alias gnb='git -b'
-alias gps='git push'
-alias gpl='git pull'
-alias gch='git checkout'
-alias gsb='git branch -a'
-
-#### General purpose
-alias e='emacs -nw'
-alias v='vim'
+## set up terminal colors 
 export TERM=xterm-256color
