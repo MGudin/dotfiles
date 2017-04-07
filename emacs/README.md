@@ -4,6 +4,7 @@
 
 [init.el](./init.el): This is the main configuration file wich set up
 global settings and import each config module.
+
 [settings](./settings): This directory contains all modules.
 
 ## init.el
