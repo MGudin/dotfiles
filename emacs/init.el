@@ -37,3 +37,5 @@
 ;; now add plugins :)
 (require 'plugins)
 
+;;_/_/_/_/_/_/_/_/ custom keybindings _/_/_/_/_/_/_/_/
+(require 'keybindings)

@@ -20,9 +20,17 @@ and it should work.
 
 **note:** At the moment it doesnt work with soft links.
 
-`$ mkdir $HOME/.emacs.d/settings`
+``` shell
+$ mkdir $HOME/.emacs.d/settings
+```
 
-`$ ln path/to/dotfiles/emacs/settings/* $HOME/.emacs.d/settings/`
+``` shell
+for filename in $(ls path/to/dotfiles/emacs/settings)
+do
+ln -s $HOME/{<path_to_dotfiles>/emacs/,.emacs.d/}settings/$filename 
+done
+
+```
 
 ## Settings directory
 
@@ -34,9 +42,9 @@ Contains three config files at the moment.
   * [behaviour.el][./behaviour.el]: Holds configurations regarding how
   emacs works when editing. Such as: tab width and other stuff
   
-  * [plugins.el][./plugins.el]: Holds plugins initialization. Uses the
-    use-package macro.
-
+  * [plugins.el][./plugins.el]: Holds plugins initialization. Uses the use-package macro.
+  
+  * [keybindings.el][./keybindings.el]: Holds some keybindings
 
 
 [./appearance.el]: ./appearance.el "appearance"
@@ -44,3 +52,5 @@ Contains three config files at the moment.
 [./behaviour.el]: ./behaviour.el "behaviour"
 
 [./plugins.el]: ./plugins.el "plugins"
+
+[./keybindings.el]: ./keybindings.el "keybindings"

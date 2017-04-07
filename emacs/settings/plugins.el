@@ -47,4 +47,25 @@
   :init (setq markdown-command "multimarkdown")
   )
 
+(use-package ivy
+  :ensure t
+  :pin melpa
+  :init
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  )
+
+(use-package swiper
+  :ensure t
+  :pin melpa
+  )
+
+(use-package counsel
+  :ensure t
+  :pin melpa
+  :init
+  (counsel-mode 1)
+  )
+
 (provide 'plugins)
