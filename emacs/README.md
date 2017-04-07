@@ -15,13 +15,10 @@ config scripts.
 It uses a subdirectory( */settings* ) that should live under
 *$HOME/.emacs.d/*.
 
-Simply link all files under this directory to *~/.emacs.d/settings*
-and it should work.
-
-**note:** At the moment it doesnt work with soft links.
+Simply link all files under this directory to *~/.emacs.d/settings* and it should work.
 
 ``` shell
-$ mkdir $HOME/.emacs.d/settings
+mkdir $HOME/.emacs.d/settings
 ```
 
 ``` shell
