@@ -27,8 +27,15 @@
   :ensure t
   :pin melpa
   :bind (("<f8>" . neotree-toggle))
+  :init
+  (setq neo-theme 'icons)
   )
 
+(use-package all-the-icons
+  :ensure t
+  )
+
+;;
 ;; editorconfig for emacs
 ;; credits:https://github.com/editorconfig/editorconfig-emacs
 (use-package editorconfig
@@ -47,6 +54,8 @@
   :init (setq markdown-command "multimarkdown")
   )
 
+;; Ivy and friends awesome framework to work with
+;; credits: https://github.com/abo-abo/swiper
 (use-package ivy
   :ensure t
   :pin melpa
@@ -66,6 +75,13 @@
   :pin melpa
   :init
   (counsel-mode 1)
+  )
+
+
+;; Sintax higlights for less files editing.
+;; Credits: https://github.com/purcell/less-css-mode/
+(use-package less-css-mode
+  :ensure t
   )
 
 (provide 'plugins)
