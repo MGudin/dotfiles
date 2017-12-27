@@ -6,6 +6,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias rmd='rm -Rfv'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -18,6 +19,12 @@ alias vea='source ./bin/activate'
 #### django aliases
 
 alias dj='python manage.py'
+
+### ruby aliases
+
+alias be='bundle exec'
+alias ber='bundle exec rails'
+alias berd='bundle exec rails db:'
 
 #### git aliases
 
