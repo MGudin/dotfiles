@@ -84,4 +84,27 @@
   :ensure t
   )
 
+
+;; rjsx mode
+;; Credits: https://github.com/felipeochoa/rjsx-mode
+(use-package rjsx-mode
+  :ensure t
+  )
+
+;; dash.el -- projectile-rails dependencie?
+(use-package dash
+  :pin marmalade
+  :ensure t)
+
+;; TODO: CANT BE INSTALLED. unmet dependencies?
+;; maybe melpa problem?
+;; (use-package projectile-rails
+;;   :pin elpa
+;;   :ensure t
+;;   )
+
+(use-package yaml-mode
+  :pin marmalade
+  :ensure t)
+
 (provide 'plugins)
