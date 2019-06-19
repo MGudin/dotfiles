@@ -107,4 +107,14 @@
   :pin marmalade
   :ensure t)
 
+(use-package dockerfile-mode
+  :ensure t
+  :init
+  )
+
+(use-package js2-mode
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist `(,(rx ".js" string-end) . js2-mode))
+  )
 (provide 'plugins)
