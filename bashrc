@@ -106,7 +106,7 @@ CYAN_BOLD="\[\033[01;36m\]"
 RIGHT_ARROW="`printf '\xE2\x87\x92'`"
 
 if [ "$color_prompt" = yes ]; then
-    PS1="$GREEN_BOLD{\h}$BLUE_BOLD [\W]$GREEN_BOLD\$(parse_git_branch)\$(parse_svn_branch) $RED_BOLD ${RIGHT_ARROW} $BASH_WHITE";
+    PS1="$YELLOW_BOLD \u $CYAN_BOLD at $GREEN_BOLD \h $CYAN_BOLD on $BLUE_BOLD \W $GREEN_BOLD\$(parse_git_branch)\$(parse_svn_branch) $RED_BOLD ${RIGHT_ARROW} $BASH_WHITE";
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\][\w]\$(parse_git_branch)\$(parse_svn_branch)\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
