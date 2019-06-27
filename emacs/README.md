@@ -18,11 +18,15 @@ It uses a subdirectory( */settings* ) that should live under
 Simply link all files under this directory to *~/.emacs.d/settings* and it should work.
 
 ``` shell
+ln {<path_to_dotfiles>,$HOME/.emacs.d}/init.els
+```
+
+``` shell
 mkdir $HOME/.emacs.d/settings
 ```
 
 ``` shell
-for filename in $(ls path/to/dotfiles/emacs/settings)
+for filename in $(ls <path_to_dotfiles>/emacs/settings)
 do
 ln -s $HOME/{<path_to_dotfiles>/emacs/,.emacs.d/}settings/$filename 
 done
