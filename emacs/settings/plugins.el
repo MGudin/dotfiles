@@ -91,17 +91,6 @@
   :ensure t
   )
 
-;; dash.el -- projectile-rails dependencie?
-(use-package dash
-  :pin marmalade
-  :ensure t)
-
-;; TODO: CANT BE INSTALLED. unmet dependencies?
-;; maybe melpa problem?
-;; (use-package projectile-rails
-;;   :pin elpa
-;;   :ensure t
-;;   )
 
 (use-package yaml-mode
   :pin marmalade
@@ -111,10 +100,36 @@
   :ensure t
   :init
   )
+;; Marckdown Table of Contents generator
+;; Credits: https://github.com/ardumont/markdown-toc/blob/master/README.md
+(use-package markdown-toc
+  :pin melpa-stable
+  :ensure t
+  )
 
 (use-package js2-mode
   :ensure t
   :init
   (add-to-list 'auto-mode-alist `(,(rx ".js" string-end) . js2-mode))
   )
+
+;; LSP mode !not working properly(?)
+(use-package lsp-mode
+  :ensure t
+  :commands lsp)
+;;;; for completions
+(use-package company-lsp
+  :ensure t
+  :after lsp-mode
+  :config (push 'company-lsp company-backends))
+
+;; Vue-mode
+(use-package vue-mode
+  :ensure t
+  :mode "\\.vue\\'"
+  :config
+  (add-hook 'vue-mode-hook #'lsp))
+
 (provide 'plugins)
+
+
